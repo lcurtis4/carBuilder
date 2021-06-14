@@ -3,9 +3,9 @@ const database = {
     paint: [
         {
             id: 1, 
-            color: "silver"}, 
+            color: "Silver"}, 
         {
-            id: 2, color: "midnight Blue"}, 
+            id: 2, color: "Midnight Blue"}, 
         {
             id: 3, 
             color: "Firebrick Red"}, 
@@ -96,4 +96,6 @@ export const getWheels = () => {
 export const setWheels = (id) => {
     database.cars.wheelId = id
 }
+
+
 

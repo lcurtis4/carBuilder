@@ -9,17 +9,17 @@ document.addEventListener(
     }
 )
 
-const paint = getPaint()
+const paints = getPaint()
 
 export const Paint = () => {
     let html = "<ul>"
 
-    for (const color of paint) {
-        html += `<li> 
-        <input type="radio" name="color" value="${color.id}" /> ${color.color} 
-        </li>`
-    }
+    const listItemArray = paints.map(paint => {
+        return `<li> 
+            <input type="radio" name="paint" value="${paint.id}" /> ${paint.color}`
+    })
 
+    html += listItemArray.join("")
     html += "</ul>"
     return html
 }
