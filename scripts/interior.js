@@ -1,25 +1,28 @@
 import { getInterior, setInterior } from "./database.js" 
 
+const interior = getInterior() 
+
 document.addEventListener(
     "change",
     (event) => {
-        if (event.target.fabric === "interior") {
+        if (event.target.name === "interior") {
             setInterior(parseInt(event.target.value))
         }
     }
 )
 
-const interior = getInterior() 
 
 export const Interior = () => {
     let html = "<ul>"
 
-    for (const material of interior) {
-        html += `<li> 
-        <input type="radio" name"material" value"${material.id}" /> ${material.fabric}
+    const itemChoices = interior.map(
+        (interior) => {
+        return `<li> 
+        <input type="radio" name="interior" value="${interior.id}" /> ${interior.fabric} ($${interior.price})
         </li>`
     }
-
+)
+    html += itemChoices.join("")
     html += "</ul>"
     return html
 }

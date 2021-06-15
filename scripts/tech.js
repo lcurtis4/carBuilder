@@ -3,7 +3,7 @@ import { getTech, setTech } from "./database.js"
 document.addEventListener(
     "change",
     (event) => {
-        if (event.target.option === "tech") {
+        if (event.target.name === "tech") {
             setTech(parseInt(event.target.value))
         }
     }
@@ -14,12 +14,15 @@ const tech = getTech()
 export const Tech = () => {
     let html = "<ul>"
 
-    for (const option of tech) {
+    const itemChoices = tech.map(
+        (option) => {
         html += `<li> 
-        <input type="radio" name="tech" value="${option.id}" /> ${option.option} 
+        <input type="radio" name="tech" value="${option.id}" /> ${option.option} ($${option.price})
         </li>`
     }
+)
 
+    html += itemChoices.join("")
     html += "</ul>"
     return html
 }

@@ -2,15 +2,17 @@ import { Paint } from "./paint.js"
 import { Interior } from "./interior.js"
 import { Tech } from "./tech.js"
 import { Wheels } from "./wheels.js"
+import { carOrders } from "./order.js"
+import { addCustomOrder } from "./database.js"
 
-// document.addEventListener(
-//     "click"
-//     (event) => {
-//         if (event.target.id === "orderButton") {
-//             addCustomOrder()
-//         }
-//     }
-// )
+document.addEventListener(
+    "click",
+    (event) => {
+        if (event.target.id === "orderButton") {
+            addCustomOrder()
+        }
+    }
+)
 
 export const carBuilder = () => {
     return `
@@ -34,5 +36,12 @@ export const carBuilder = () => {
             ${Wheels()}
         </section>
     </article> 
+    <article>
+            <button id="orderButton">Create Custom Order</button>
+        </article>
+        <article class="customOrders">
+                <h2>Custom Car Orders</h2>
+                ${carOrders()}
+        </article>
     `
 }
