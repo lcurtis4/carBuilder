@@ -107,12 +107,28 @@ const database = {
     }
 }
 
+/*
+map is called on the object (paint) in the array (database). 
+The map() method creates a new array populated with the results 
+of calling a provided function on every element in the calling array. 
+
+This is called to get all the paints into other modules. (paint.js & order.js) 
+*/
 export const getPaint = () => {
     return database.paint.map(paint => ({...paint}))
 }
+/*
+setPaint is a function with the parameter of "id". when called
+it sets the "paintId" key  on the "orderBuilder" object is equal 
+to the "id" we passed the function. 
+
+This gets called when click event of a paint occurs (paint.js)
+*/
 export const setPaint = (id) => {
     database.orderBuilder.paintId = id
 }
+
+
 
 export const getInterior = () => {
     return database.interior.map(fabric => ({...fabric}))
@@ -138,18 +154,26 @@ export const setWheels = (id) => {
 export const getOrders = () => {
     return database.customOrders.map(order => ({...order}))
 }
-export const addCustomOrder = () => {
-    const newOrder = {...database.orderBuilder}
 
+
+// This is the function that makes the button work
+// called in carBuilder.js
+export const addCustomOrder = () => {
+    // setting the value of newOrder & lastIndex
+    const newOrder = {...database.orderBuilder}
     const lastIndex = database.customOrders.length - 1
+
+    // setting the new orders id to the last orders id +1 
     newOrder.id = database.customOrders[lastIndex].id + 1
 
     newOrder.timestamp = Date.now()
 
+    // putting the newOrder into the array
     database.customOrders.push(newOrder)
 
     database.orderBuilder = {}
 
+    // broadcasting the updated array 
     document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 

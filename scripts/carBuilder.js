@@ -5,9 +5,12 @@ import { Wheels } from "./wheels.js"
 import { carOrders } from "./order.js"
 import { addCustomOrder } from "./database.js"
 
+
+// the event that occurs when the button is clicked
 document.addEventListener(
     "click",
     (event) => {
+        // "orderButton" comes from the id given the article below
         if (event.target.id === "orderButton") {
             addCustomOrder()
         }

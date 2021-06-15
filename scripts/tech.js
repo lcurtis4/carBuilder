@@ -1,5 +1,7 @@
 import { getTech, setTech } from "./database.js" 
 
+const tech = getTech()
+
 document.addEventListener(
     "change",
     (event) => {
@@ -8,8 +10,6 @@ document.addEventListener(
         }
     }
 )
-
-const tech = getTech()
 
 export const Tech = () => {
     let html = "<ul>"

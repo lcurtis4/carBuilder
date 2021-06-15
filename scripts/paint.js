@@ -2,6 +2,10 @@ import { getPaint, setPaint } from "./database.js"
 
 const paints = getPaint()
 
+/*
+this event listens for when the user 
+makes a choice in the paint option group
+*/
 document.addEventListener(
     "change",
     (event) => {
@@ -11,7 +15,10 @@ document.addEventListener(
     }
 )
 
-
+/*
+calling map on paint(Array) to find the paint(Key)
+ and return html representation of paint
+*/
 export const Paint = () => {
     let html = "<ul>"
 

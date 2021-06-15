@@ -8,7 +8,7 @@ const renderAllHtml = () => {
 
 renderAllHtml()
 
+// listens that the order state has changed and calls renderAllHTML 
 document.addEventListener("stateChanged", event => {
-    console.log("State of data has changed. Regenerating HTML...")
     renderAllHtml()
 })
