@@ -54,9 +54,6 @@ const buildOrderListItem = (order) => {
     </li>`
 }
 
-/*
-
-*/
 export const carOrders = () => {
 
     const orders = getOrders()

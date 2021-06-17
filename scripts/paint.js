@@ -16,7 +16,7 @@ document.addEventListener(
 )
 
 /*
-calling map on paint(Array) to find the paint(Key)
+calling map on paints(Array) to find the paint(Key)
  and return html representation of paint
 */
 export const Paint = () => {
